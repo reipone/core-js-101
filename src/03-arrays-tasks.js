@@ -308,6 +308,7 @@ function getPositivesCount(/* arr */) {
   throw new Error('Not implemented');
 }
 
+
 /**
  * Sorts digit names
  *
@@ -326,6 +327,7 @@ function sortDigitNamesByNumericOrder(arr) {
   return arr.sort((a, b) => digits.indexOf(a) > digits.indexOf(b));
 }
 
+
 /**
  * Returns the sum of all items in the specified array of numbers
  *
@@ -342,6 +344,7 @@ function getItemsSum(arr) {
   return arr.reduce((a, b) => a + b, 0);
 }
 
+
 /**
  * Returns the number of all falsy value in the specified array
  *
@@ -357,6 +360,7 @@ function getItemsSum(arr) {
 function getFalsyValuesCount(arr) {
   return arr.reduce((a, b) => a + (b ? 0 : 1), 0);
 }
+
 
 /**
  * Returns a number of all occurences of the specified item in an array
@@ -446,6 +450,7 @@ function getIdentityMatrix(/* n */) {
   throw new Error('Not implemented');
 }
 
+
 /**
  * Creates an array of integers from the specified start to end (inclusive)
  *
@@ -462,6 +467,7 @@ function getIdentityMatrix(/* n */) {
 function getIntervalArray(/* start, end */) {
   throw new Error('Not implemented');
 }
+
 
 /**
  * Returns array containing only unique values from the specified array.
