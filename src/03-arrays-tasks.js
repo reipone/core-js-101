@@ -430,8 +430,17 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  const compare = (a, b) => {
+    if (a.country > b.country) return 1;
+    if (a.country < b.country) return -1;
+    if (a.country === b.country) {
+      if (a.city > b.city) return 1;
+      if (a.city < b.city) return -1;
+    }
+    return 0;
+  };
+  return arr.sort(compare);
 }
 
 
@@ -453,9 +462,11 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const mat = new Array(n).fill([]);
+  return mat.map((row, index) => new Array(n).fill(0).fill(1, index, index + 1));
 }
+
 
 /**
  * Creates an array of integers from the specified start to end (inclusive)
@@ -470,9 +481,10 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  return new Array((end + 1) - start).fill().map((d, i) => i + start);
 }
+
 
 /**
  * Returns array containing only unique values from the specified array.
@@ -485,8 +497,9 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const unique = [...new Set(arr)];
+  return unique;
 }
 
 /**
@@ -522,7 +535,6 @@ function distinct(/* arr */) {
 function group(/* array, keySelector, valueSelector */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Projects each element of the specified array to a sequence
