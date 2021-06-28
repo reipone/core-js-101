@@ -112,8 +112,19 @@ function memoize(func) {
  * }, 2);
  * retryer() => 2
  */
-function retry(/* func, attempts */) {
-  throw new Error('Not implemented');
+function retry(func, attempts) {
+  const newFunc = () => {
+    let i = 0;
+    while (i <= attempts) {
+    try {
+      return func();
+    } catch (error) {
+      i += 1;
+    }
+  }
+    return i;
+  };
+  return newFunc;
 }
 
 
@@ -158,8 +169,9 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args1) {
+  const partialFunction = (...args) => fn(...args1, ...args);
+  return partialFunction;
 }
 
 
@@ -180,8 +192,13 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
-  throw new Error('Not implemented');
+function getIdGeneratorFunction(startFrom) {
+  let start = startFrom - 1;
+  const next = () => {
+    start += 1;
+    return start;
+  };
+  return next;
 }
 
 
